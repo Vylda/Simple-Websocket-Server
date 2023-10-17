@@ -3,7 +3,7 @@
 ## Instalation
 
 ```bash
-git clone
+git clone git@github.com:Vylda/Simple-Websocket-Server.git
 cd simple-websocket-server
 npm install
 ```
