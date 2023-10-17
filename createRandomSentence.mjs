@@ -1,6 +1,6 @@
 import lexicon from './lexicon.mjs';
 
-const puntactions = ['.', '?', '!', '...'];
+const puntactions = ['.', '?', '!', '…'];
 
 const createRandomSentence = () => {
   const lexiconLength = lexicon.length;
