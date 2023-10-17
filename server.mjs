@@ -1,6 +1,6 @@
 import ParseArgs from "@thaerious/parseargs";
 import { WebSocketServer } from 'ws';
-import lexicon from './lexicon.mjs';
+import createRandomSentence from "./createRandomSentence.mjs";
 
 
 const defaultArgs = {
@@ -15,23 +15,6 @@ if (isNaN(port)) {
   console.error('Port must be a number!');
   process.exit(1);
 }
-
-const puntactions = ['.', '?', '!', '...'];
-const createRandomSentence = () => {
-  const lexiconLength = lexicon.length;
-  const wordsCount = Math.floor(Math.random() * 4) + 4;
-  const words = [];
-  for (let i = 0; i < wordsCount; i++) {
-    const randomIndex = Math.floor(Math.random() * lexiconLength);
-    words.push(lexicon[randomIndex]);
-  }
-
-  const firstWord = words[0];
-  words[0] = firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
-  const randomPunctation =puntactions[Math.floor(Math.random() * puntactions.length)];
-
- return `${words.join(' ')}${randomPunctation}`;
-};
 
 const wss = new WebSocketServer({ port: options.port });
 let randomSentence;
